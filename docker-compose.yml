@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  app:
+    image: wordpress
+    container_name: wordpress_app
+    ports:
+      - "8080:80"
+    # volumes:
+    #   - ./.docker/wordpress:/var/www/html
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=${DB_USER}
+      - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
+      - WORDPRESS_DB_NAME=${DB_NAME}
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    container_name: wordpress_db
+    volumes:
+      - db_data:/var/lib/mysql
+    expose:
+      - "3306"
+    environment:
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+
+volumes:
+  db_data:
