@@ -6,8 +6,8 @@ services:
     container_name: wordpress_app
     ports:
       - "8080:80"
-    # volumes:
-    #   - ./.docker/wordpress:/var/www/html
+    volumes:
+      - ./.docker/wordpress:/var/www/html
     environment:
       - WORDPRESS_DB_HOST=db
       - WORDPRESS_DB_USER=${DB_USER}

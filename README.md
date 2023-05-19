@@ -14,8 +14,7 @@ It's a simple template for wordpress projects to run in a Dcker configuration.
 1. Get the latest version of this repository running the command:
 
     ```
-    git clone https://github.com/IanMiranda43/wordpress-docker-template.git
-    cd wordpress-docker-template
+    git clone https://github.com/IanMirandaDev/wordpress-docker-template.git
     ```
 
 2. Create a `.env` file based on the `.env.example` and update the environment variables into that. 
